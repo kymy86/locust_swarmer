@@ -45,7 +45,7 @@ data "template_file" "init_server" {
 
 }
 
-resource "aws_instance" "locust_master"{
+resource "aws_instance" "locust_master" {
     ami = "${lookup(var.aws_amis, var.aws_region)}"
     instance_type = "${var.locust_instance_type}"
     key_name = "${var.aws_key_name}"
@@ -76,7 +76,7 @@ data "template_file" "init_server_slave" {
 
 }
 
-resource "aws_instance" "locust_slave"{
+resource "aws_instance" "locust_slave" {
     count = "${var.number_of_slaves}"
     ami = "${lookup(var.aws_amis, var.aws_region)}"
     instance_type = "${var.locust_instance_type}"
