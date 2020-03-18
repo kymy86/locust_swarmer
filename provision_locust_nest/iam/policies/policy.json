@@ -12,11 +12,20 @@
         },
         {
             "Action": [
-                "s3:*"
+                "s3:ListAllMyBuckets",
+                "s3:HeadBucket"
             ],
             "Effect": "Allow",
             "Resource":[
                 "*"
+            ]
+        },
+        {
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::*/*",
+                "${bucket_arn}"
             ]
         }
     ]

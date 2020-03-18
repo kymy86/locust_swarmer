@@ -85,6 +85,7 @@ celerybeat-schedule
 # virtualenv
 venv/
 ENV/
+.venv/
 
 # Spyder project settings
 .spyderproject
@@ -96,7 +97,7 @@ ENV/
 .DS_Store
 tags
 server.log
-.vscode/
+.vscode
 .idea
 
 # Terraform
@@ -112,3 +113,4 @@ terraform.tfstate
 *.test
 *.iml
 *.tfvars
+.
