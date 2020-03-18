@@ -7,20 +7,20 @@ resource "aws_vpc" "locust_vpc" {
 }
 
 resource "aws_internet_gateway" "locust_gateway" {
-    vpc_id = "${aws_vpc.locust_vpc.id}"
+    vpc_id = aws_vpc.locust_vpc.id
     tags = {
         Name = "Locust Swarm Gateway"
     }
 }
 
 resource "aws_route" "public_access" {
-    route_table_id = "${aws_vpc.locust_vpc.main_route_table_id}"
+    route_table_id = aws_vpc.locust_vpc.main_route_table_id
     destination_cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_internet_gateway.locust_gateway.id}"
+    gateway_id = aws_internet_gateway.locust_gateway.id
 }
 
 resource "aws_subnet" "public_subnet" {
-    vpc_id = "${aws_vpc.locust_vpc.id}"
+    vpc_id = aws_vpc.locust_vpc.id
     cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = true
     tags = {
@@ -29,6 +29,6 @@ resource "aws_subnet" "public_subnet" {
 }
 
 resource "aws_route_table_association" "public_subnet_association" {
-    subnet_id = "${aws_subnet.public_subnet.id}"
-    route_table_id = "${aws_vpc.locust_vpc.main_route_table_id}"
+    subnet_id = aws_subnet.public_subnet.id
+    route_table_id = aws_vpc.locust_vpc.main_route_table_id
 }
