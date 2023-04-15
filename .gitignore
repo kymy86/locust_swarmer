@@ -104,6 +104,7 @@ server.log
 example.tf
 terraform.tfplan
 terraform.tfstate
+.terraform.lock.hcl
 *.backup
 ./*.tfstate
 .terraform/

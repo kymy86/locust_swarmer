@@ -11,14 +11,6 @@ variable "locust_instance_type" {
   default = "t3.small"
 }
 
-variable "aws_amis" {
-    default = {
-        eu-central-1 = "ami-0b418580298265d5c"
-        eu-west-2 = "ami-006a0174c6c25ac06"
-        eu-west-1 = "ami-035966e8adab4aaad"
-    }
-}
-
 variable "aws_public_key_path" {
   description = <<DESCRIPTION
 Path to the SSH public key to be used for authentication.

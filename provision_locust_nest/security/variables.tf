@@ -1,7 +1,7 @@
 variable "vpc_id" {
-    type = string
+  type = string
 }
 
 variable "ingress_allow_cidr" {
-    type = list
+  type = list(any)
 }
